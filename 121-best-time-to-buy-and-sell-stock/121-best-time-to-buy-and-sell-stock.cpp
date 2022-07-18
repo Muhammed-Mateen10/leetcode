@@ -5,16 +5,8 @@ public:
         int n  = prices.size();
         while(s < n){
             prof = max(prof , prices[s]  - prices[b]);
-            if(prices[b] > prices[s])
-            {
-                b = s;
-                ++s;
-                
-            }
-            else {
-                ++s;
-        }
-            
+            b = (prices[b] > prices[s] ? s : b);
+            ++s;
         }
         return prof > 0 ? prof : 0;
     }
